@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mongoose Dashboard Results</title>
+</head>
+<style>
+	* {margin: 0; padding: 0; }
+	.wrapperB {width: 100%;}
+	.containerB {width: 665px; margin: 50px auto; padding: 40px; background-color: white; opacity: 0.85; }
+	.links {margin-bottom: 50px;}
+	table {margin: 25px;}
+	body {background: url(img/sun.png) no-repeat center center fixed; }
+
+</style>
+
+<body>
+	<div class="wrapperB">
+		<div class="containerB">
+
+		<p class="links"><a href="/">Add New Animal</a> | <a href="/results">View All Animals</a></p>
+		<fieldset>
+			<legend><h3>Animal Results</h3></legend>
+			<table border="1">
+				<tr>
+					<th>Animal Name: </th>
+					<th>Country: </th>
+					<th>Group: </th>
+					<th>Action: </th>
+				</tr>
+				<% for(var x in animals){ %>
+				<tr>
+					<td><%= animals[x].name %></td>
+					<td><%= animals[x].country %></td>
+					<td><%= animals[x].group  %></td>
+					<td><a href="/update/<%= animals[x]._id %>">Edit</a> | <a href="animals/destroy/<%= animals[x]._id %>">Delete</a></td>
+				</tr>
+				<%}%>
+			</table>
+		</fieldset>
+		</div>
+	</div>
+</body>
+</html>
